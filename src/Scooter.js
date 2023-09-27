@@ -1,7 +1,7 @@
 class Scooter{
+   // scooter code here
   static nextSerial = 1
-  
-  // scooter code here
+ 
   constructor(station) {
     this.station = station
     this.user = null
@@ -12,10 +12,9 @@ class Scooter{
   }
 
   rent(user) {
-    
+
   }
 }
-
 
 
 module.exports = Scooter
