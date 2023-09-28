@@ -8,8 +8,5 @@ class User {
   }
 }
 
-const aaron = new User('Aaron', '123wurd', 83)
-
-console.log(aaron)
 
 module.exports = User
