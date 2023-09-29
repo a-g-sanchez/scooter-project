@@ -49,8 +49,14 @@ describe('logout user method tests', ()=> {
 
 describe('create scooter method test', () => {
   test('Should return instance of Scooter', () => {
-    let response = new Scooter('atxWest')
+    let response = scooterApp.createScooter('atxWest')
     expect(response).toBeInstanceOf(Scooter)
+  })
+
+  test('Should throw an error when incorrect station is inputed', () => {
+    expect(()=>{
+      scooterApp.createScooter('atxSounthWest')
+    }).toThrow('No such station error')
   })
 })
 
