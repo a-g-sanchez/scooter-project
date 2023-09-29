@@ -4,6 +4,7 @@ const ScooterApp = require('../src/ScooterApp')
 
 const scooterApp = new ScooterApp();
 
+
 // ScooterApp tests here
 
 // register user
@@ -49,7 +50,7 @@ describe('logout user method tests', ()=> {
 
 describe('create scooter method test', () => {
   test('Should return instance of Scooter', () => {
-    let response = scooterApp.createScooter('atxWest')
+    let response = scooterApp.createScooter('atxNorth')
     expect(response).toBeInstanceOf(Scooter)
   })
 
@@ -67,6 +68,13 @@ describe('rent scooter method test', () => {
     expect(() => {
       scooterApp.rentScooter(3, 'Joe Bloggs')
     }).toThrow('Scooter is unavailable')
+  })
+
+  test('Should correctly rent a scooter to a user', () => {
+    const testScooter = new Scooter('atxSouth')
+    scooterApp.stations['atxSouth'].push(testScooter)
+    scooterApp.rentScooter(2, 'Joe Bloggs')
+    expect(testScooter.user).toBeInstanceOf(User)
   })
 })
 
