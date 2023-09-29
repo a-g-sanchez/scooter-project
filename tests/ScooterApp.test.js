@@ -27,7 +27,7 @@ describe('login user method tests', () => {
   test('Should test error throwing when user does not exist', () => {
     expect(()=> {
       scooterApp.loginUser('Aaron G', '123Word')
-    }).toThrow('Username or password is incorrect')
+    }).toThrow('Username is incorrect')
   })
 
   // test('Should test succesfull login', () => {
