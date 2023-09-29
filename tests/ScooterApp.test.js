@@ -3,7 +3,8 @@ const User = require('../src/User')
 const ScooterApp = require('../src/ScooterApp')
 
 const scooterApp = new ScooterApp();
-
+const testScooter = new Scooter('atxSouth')
+scooterApp.stations['atxSouth'].push(testScooter)
 
 // ScooterApp tests here
 
@@ -71,9 +72,7 @@ describe('rent scooter method test', () => {
   })
 
   test('Should correctly rent a scooter to a user', () => {
-    const testScooter = new Scooter('atxSouth')
-    scooterApp.stations['atxSouth'].push(testScooter)
-    scooterApp.rentScooter(2, 'Joe Bloggs')
+    scooterApp.rentScooter(1, 'Joe Bloggs')
     expect(testScooter.user).toBeInstanceOf(User)
   })
 })
@@ -81,5 +80,8 @@ describe('rent scooter method test', () => {
 // dock scooter
 
 describe('dock scooter method test', ()=> {
-  
+  test('Should correctly dock the scooter and remove the user from the scooters user property', () => {
+    scooterApp.dockScooter(testScooter, 'atxEast')
+    expect(testScooter.user).toBe(null)
+  })
 })

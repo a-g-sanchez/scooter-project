@@ -106,12 +106,12 @@ class ScooterApp {
 
 
 /////////// quick demo area ///////////
-let theSA = new ScooterApp()
-let testScooter = new Scooter('atxWest')
-theSA.stations['atxWest'].push(testScooter)
+// let theSA = new ScooterApp()
+// let testScooter = new Scooter('atxWest')
+// theSA.stations['atxWest'].push(testScooter)
 
 //////Register User
-let personOne = theSA.registerUser('Person One', '123Wurd', 18)
+// let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 // // let personTwo = theSA.registerUser('Person Two', '123wurd', 76)
 
 //////Login User
@@ -125,17 +125,17 @@ let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 // theSA.logoutUser('Person One')
 
 //////Crate Scooter
-theSA.createScooter('atxNorth')
+// theSA.createScooter('atxNorth')
 // theSA.createScooter('atxWest')
 
 //////Rent Scooter
-theSA.rentScooter(1, 'Person One')
+// theSA.rentScooter(1, 'Person One')
 
 //////Dock Scooter
 
-theSA.dockScooter(testScooter, 'atxEast')
+// theSA.dockScooter(testScooter, 'atxEast')
 
-console.log(theSA)
+// console.log(theSA)
 // console.log(stations)
 
 
