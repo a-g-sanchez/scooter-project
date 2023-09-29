@@ -62,4 +62,12 @@ describe('create scooter method test', () => {
 
 // rent scooter
 
+describe('rent scooter method test', () => {
+  test('Should throw error if scooter is unavailable', () => {
+    expect(() => {
+      scooterApp.rentScooter(3, 'Joe Bloggs')
+    }).toThrow('Scooter is unavailable')
+  })
+})
+
 // dock scooter
