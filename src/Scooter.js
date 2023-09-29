@@ -12,7 +12,7 @@ class Scooter{
   }
 
   rent(user) {
-
+    
   }
 }
 

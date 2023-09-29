@@ -60,14 +60,33 @@ class ScooterApp {
     console.log('Created new scooter')
     return newScooter
   }
+
+  rentScooter(scooter, user) {
+    let rentedScooter 
+
+    for (const stations in this.stations) {
+      // console.log(this.stations[stations])
+      for(let i = 0; i<this.stations[stations].length; i++){
+        // console.log(this.stations[stations][i])
+        // availableScooters.push(this.stations[stations][i].serial)
+        if(scooter === this.stations[stations][i].serial){
+          // console.log(this.stations[stations][i])
+          rentedScooter = this.stations[stations].splice(i, 1)
+        }
+      }
+      console.log(this.stations[stations])
+    }
+
+    // console.log(rentedScooter)
+  }
 }
 
 
 /////////// quick demo area ///////////
-// let theSA = new ScooterApp()
+let theSA = new ScooterApp()
 
 //////Register User
-// let personOne = theSA.registerUser('Person One', '123Wurd', 18)
+let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 // // let personTwo = theSA.registerUser('Person Two', '123wurd', 76)
 
 //////Login User
@@ -81,9 +100,13 @@ class ScooterApp {
 // theSA.logoutUser('Person One')
 
 //////Crate Scooter
-// theSA.createScooter('atxNorth')
+theSA.createScooter('atxNorth')
+theSA.createScooter('atxWest')
 
+theSA.rentScooter(2, 'Person One')
 
 // console.log(theSA)
+// console.log(stations)
+
 
 module.exports = ScooterApp
