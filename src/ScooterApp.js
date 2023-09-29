@@ -62,27 +62,35 @@ class ScooterApp {
   }
 
   rentScooter(scooter, user) {
+    let availableScooters = []
     let rentedScooter 
-  
 
+    //Adds available scooters to availableScooters array
     for (const stations in this.stations) {
-      // console.log(this.stations[stations])
       for(let i = 0; i<this.stations[stations].length; i++){
-        // console.log(this.stations[stations][i])
-        // availableScooters.push(this.stations[stations][i].serial)
+        availableScooters.push(this.stations[stations][i].serial)
+      }
+    }
+
+    //Checks if the desired scooter is available or not
+    if(!availableScooters.includes(scooter)){
+      throw new Error('Scooter is unavailable')
+    }
+
+    //Removes the desired scooter from the stations object 
+    for (const stations in this.stations) {
+      for(let i = 0; i<this.stations[stations].length; i++){
         if(scooter === this.stations[stations][i].serial){
-          // console.log(this.stations[stations][i])
           rentedScooter = this.stations[stations].splice(i, 1)
         }
       }
     }
 
+    //Uses the rent method from the scooter instance to apply a user to the user property
     if(this.registeredUsers[user]){
       rentedScooter[0].rent(this.registeredUsers[user])
-      // console.log(this.registeredUsers[user])
-    }
-
-    console.log(rentedScooter)
+      console.log('Scooter is rented')
+    }   
   }
 }
 
@@ -108,7 +116,7 @@ let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 theSA.createScooter('atxNorth')
 theSA.createScooter('atxWest')
 
-theSA.rentScooter(2, 'Person One')
+theSA.rentScooter(1, 'Person One')
 
 // console.log(theSA)
 // console.log(stations)
