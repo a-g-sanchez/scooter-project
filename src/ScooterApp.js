@@ -40,13 +40,25 @@ class ScooterApp {
     this.registeredUsers[username].login(password)
     }
   
-
   logoutUser(username){ 
     if(!this.registeredUsers[username]){
       throw new Error('No such user is logged in')
     }
 
     this.registeredUsers[username].logout()
+  }
+
+  createScooter(station) {
+    if(!this.stations[station]){
+      throw new Error('No such station error')
+    }
+
+    let newScooter = new Scooter(station)
+    newScooter.station = station
+    this.stations[station].push(newScooter)
+
+    console.log('Created new scooter')
+    return newScooter
   }
 }
 
@@ -67,6 +79,9 @@ class ScooterApp {
 // theSA.logoutUser('Person One')
 
 // theSA.logoutUser('Person One')
+
+//////Crate Scooter
+// theSA.createScooter('atxNorth')
 
 
 // console.log(theSA)

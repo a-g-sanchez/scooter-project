@@ -36,12 +36,21 @@ describe('login user method tests', () => {
 })
 
 // log out
-
 describe('logout user method tests', ()=> {
+
   test('Should test error throwing when no such user is logged in', () => {
     expect(() => {
       scooterApp.logoutUser('Aaron G')
     }).toThrow('No such user is logged in')
+  })
+})
+
+// create scooter
+
+describe('create scooter method test', () => {
+  test('Should return instance of Scooter', () => {
+    let response = new Scooter('atxWest')
+    expect(response).toBeInstanceOf(Scooter)
   })
 })
 
