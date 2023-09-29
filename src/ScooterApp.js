@@ -92,14 +92,26 @@ class ScooterApp {
       console.log('Scooter is rented')
     }   
   }
+
+  dockScooter(scooter, station){
+    if(!this.stations[station]){
+      throw new Error('No such station')
+    }
+
+    this.stations[station].push(scooter)
+    scooter.dock()
+    console.log('Scooter is docked')
+  }
 }
 
 
 /////////// quick demo area ///////////
-// let theSA = new ScooterApp()
+let theSA = new ScooterApp()
+let testScooter = new Scooter('atxWest')
+theSA.stations['atxWest'].push(testScooter)
 
 //////Register User
-// let personOne = theSA.registerUser('Person One', '123Wurd', 18)
+let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 // // let personTwo = theSA.registerUser('Person Two', '123wurd', 76)
 
 //////Login User
@@ -113,12 +125,17 @@ class ScooterApp {
 // theSA.logoutUser('Person One')
 
 //////Crate Scooter
-// theSA.createScooter('atxNorth')
+theSA.createScooter('atxNorth')
 // theSA.createScooter('atxWest')
 
-// theSA.rentScooter(1, 'Person One')
+//////Rent Scooter
+theSA.rentScooter(1, 'Person One')
 
-// console.log(theSA)
+//////Dock Scooter
+
+theSA.dockScooter(testScooter, 'atxEast')
+
+console.log(theSA)
 // console.log(stations)
 
 

@@ -79,3 +79,7 @@ describe('rent scooter method test', () => {
 })
 
 // dock scooter
+
+describe('dock scooter method test', ()=> {
+  
+})

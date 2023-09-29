@@ -22,7 +22,10 @@ class Scooter{
     this.user = user
   }
 
-
+  dock(station) {
+    this.station = station
+    this.user = null
+  }
 }
 
 
