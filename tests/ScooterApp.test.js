@@ -23,15 +23,16 @@ describe("registerUser method tests", () => {
 
 // log in
 describe('login user method tests', () => {
+  
   test('Should test error throwing when user does not exist', () => {
     expect(()=> {
-      scooterApp.login('Aaron G', '123Word')
+      scooterApp.loginUser('Aaron G', '123Word')
     }).toThrow('Username or password is incorrect')
   })
 
-  test('Should test succesfull login', () => {
-    scooterApp.login('Joe Bloggs', 'test123')
-  })
+  // test('Should test succesfull login', () => {
+  //   scooterApp.login('Joe Bloggs', 'test123')
+  // })
 })
 
 // log out

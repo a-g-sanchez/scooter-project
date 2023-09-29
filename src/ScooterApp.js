@@ -30,28 +30,44 @@ class ScooterApp {
     }
   }
 
-  login(username, password) {
-    if(!this.registeredUsers[username] || this.registeredUsers[username].password !== password){
+  loginUser(username, password) {
+    if(!this.registeredUsers[username]){
       console.log('Username or password is incorrect')
       throw new Error('Username or password is incorrect')
-    }else{
-      this.registeredUsers[username].loggedIn = true
-      console.log('User has been logged in')
-      console.log(this.registeredUsers[username])
     }
+
+    this.registeredUsers[username].login(password)
+    }
+  
+
+  logoutUser(username){ 
+    if(!this.registeredUsers[username]){
+      throw new Error('No such user is logged in')
+    }
+
+    this.registeredUsers[username].logout()
   }
 }
 
+
+/////////// quick demo area ///////////
 let theSA = new ScooterApp()
 
-/////////// demo area
-
+//////Register User
 let personOne = theSA.registerUser('Person One', '123Wurd', 18)
 // // let personTwo = theSA.registerUser('Person Two', '123wurd', 76)
 
-// theSA.login('Person One', '123Word')
-theSA.login('Person One', '123Wurd')
+//////Login User
 
-// console.log(response, 'here')
+theSA.loginUser('Person One', '123Wurd')
+
+//////Logout User
+
+theSA.logoutUser('Person One')
+
+// theSA.logoutUser('Person One')
+
+
+// console.log(theSA)
 
 module.exports = ScooterApp
