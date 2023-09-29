@@ -63,6 +63,7 @@ class ScooterApp {
 
   rentScooter(scooter, user) {
     let rentedScooter 
+  
 
     for (const stations in this.stations) {
       // console.log(this.stations[stations])
@@ -74,10 +75,14 @@ class ScooterApp {
           rentedScooter = this.stations[stations].splice(i, 1)
         }
       }
-      console.log(this.stations[stations])
     }
 
-    // console.log(rentedScooter)
+    if(this.registeredUsers[user]){
+      rentedScooter[0].rent(this.registeredUsers[user])
+      // console.log(this.registeredUsers[user])
+    }
+
+    console.log(rentedScooter)
   }
 }
 

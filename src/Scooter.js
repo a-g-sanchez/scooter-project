@@ -12,7 +12,8 @@ class Scooter{
   }
 
   rent(user) {
-    
+    this.station = null
+    this.user = user
   }
 }
 
