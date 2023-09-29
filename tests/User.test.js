@@ -24,14 +24,19 @@ describe("User property tests", () => {
 describe('User method tests', () => {
 
 // test login
-  test('Error should be thrown if password does not match', () => {
-    expect(() => {
-      user.login('123test')
-    }).toThrow('Incorrect Password')
-  } )
+test('Error should be thrown if password does not match', () => {
+  expect(() => {
+    user.login('123test')
+  }).toThrow('Incorrect Password')
+} )
   
 
 // test logout
+test('Error should be throw if user is not logged in', () => {
+  expect(()=> {
+    user.logout()
+  }).toThrow('User is not logged in')
+})
 
 })
 
