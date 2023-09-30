@@ -62,6 +62,10 @@ class ScooterApp {
   }
 
   rentScooter(scooter, user) {
+    if(typeof scooter !== 'number'){
+      scooter = scooter.serial
+    }
+
     let availableScooters = []
     let rentedScooter 
 
