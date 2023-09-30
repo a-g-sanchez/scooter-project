@@ -13,7 +13,7 @@ class User {
     }
 
     this.loggedIn = true
-    console.log('User has been logged in')
+    // console.log('User has been logged in')
   }
 
   logout(){
@@ -21,7 +21,7 @@ class User {
       throw new Error('User is not logged in')
     }
     this.loggedIn = false
-    console.log('User has been logged out')
+    // console.log('User has been logged out')
   }
 }
 

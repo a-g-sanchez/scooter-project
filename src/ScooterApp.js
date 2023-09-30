@@ -32,12 +32,12 @@ class ScooterApp {
 
   loginUser(username, password) {
     if(!this.registeredUsers[username]){
-      // console.log('Username or password is incorrect')
       throw new Error('Username is incorrect') 
       // Instructions say to 'username or password is incorrect' but I belive the user login method should handle password validatioin. Changing this verbage is now more direct and easier to read
     }
 
     this.registeredUsers[username].login(password)
+    console.log('User has been logged in')
     }
   
   logoutUser(username){ 
@@ -46,6 +46,7 @@ class ScooterApp {
     }
 
     this.registeredUsers[username].logout()
+    console.log('User has been logged out')
   }
 
   createScooter(station) {
