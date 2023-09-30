@@ -15,12 +15,12 @@ scooterApp.stations['atxSouth'].push(testScooter)
 // register user
 describe("registerUser method tests", () => {
 
-  test("Should return instance of User", () => {
+  test("Should return instance of User after sucessful signup", () => {
     let response = scooterApp.registerUser("Joe Bloggs", "test123", 21);
     expect(response).toBeInstanceOf(User);
   });
 
-  test('Should check if a user is under the age of 18', () => {
+  test('Should throw error if user is under 18', () => {
     expect(()=> {
       scooterApp.registerUser('Person One', '123wurd', 16)
     }).toThrow('Too young to register')
@@ -44,6 +44,11 @@ describe('login user method tests', () => {
 
 // log out
 describe('logout user method tests', ()=> {
+
+  test('Should log a user out if they are signed in', () => {
+    scooterApp.logoutUser('Test Person')
+    expect(testPerson.loggedIn).toBe(false)
+  })
 
   test('Should test error throwing when no such user is logged in', () => {
     expect(() => {
