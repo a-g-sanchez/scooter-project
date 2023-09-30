@@ -2,9 +2,13 @@ const Scooter = require('../src/Scooter')
 const User = require('../src/User')
 const ScooterApp = require('../src/ScooterApp')
 
-const scooterApp = new ScooterApp();
+const scooterApp = new ScooterApp()
+const testPerson = new User('Test Person', '123Wurd', 78)
+scooterApp.registeredUsers[testPerson.username] = testPerson
 const testScooter = new Scooter('atxSouth')
 scooterApp.stations['atxSouth'].push(testScooter)
+
+
 
 // ScooterApp tests here
 
@@ -32,9 +36,10 @@ describe('login user method tests', () => {
     }).toThrow('Username is incorrect')
   })
 
-  // test('Should test succesfull login', () => {
-  //   scooterApp.login('Joe Bloggs', 'test123')
-  // })
+  test('Should test succesfull login', () => {
+    scooterApp.loginUser('Test Person', '123Wurd')
+    expect(testPerson.loggedIn).toBe(true)
+  })
 })
 
 // log out
@@ -50,6 +55,7 @@ describe('logout user method tests', ()=> {
 // create scooter
 
 describe('create scooter method test', () => {
+
   test('Should return instance of Scooter', () => {
     let response = scooterApp.createScooter('atxNorth')
     expect(response).toBeInstanceOf(Scooter)
@@ -65,6 +71,7 @@ describe('create scooter method test', () => {
 // rent scooter
 
 describe('rent scooter method test', () => {
+
   test('Should throw error if scooter is unavailable', () => {
     expect(() => {
       scooterApp.rentScooter(3, 'Joe Bloggs')
@@ -98,5 +105,4 @@ describe('dock scooter method test', ()=> {
     }).toThrow('Scooter is already docked')
   })
 
- 
 })

@@ -106,8 +106,12 @@ class ScooterApp {
 
     this.stations[station].push(scooter)
     scooter.dock(station)
-    console.log('Scooter is docked')
-    
+    console.log('Scooter is docked') 
+  }
+
+  print() {
+    console.log(this.registeredUsers)
+    console.log(this.stations)
   }
 }
 

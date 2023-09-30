@@ -24,6 +24,12 @@ describe("User property tests", () => {
 describe('User method tests', () => {
 
 // test login
+
+test('Should log in a user if the password matches', ()=> {
+  user.login('test123')
+  expect(user.loggedIn).toBe(true)
+})
+
 test('Error should be thrown if password does not match', () => {
   expect(() => {
     user.login('123test')
@@ -32,6 +38,11 @@ test('Error should be thrown if password does not match', () => {
   
 
 // test logout
+test('Should logout a user if they are logged in', () => {
+  user.logout()
+  expect(user.loggedIn).toBe(false)
+} )
+
 test('Error should be throw if user is not logged in', () => {
   expect(()=> {
     user.logout()
