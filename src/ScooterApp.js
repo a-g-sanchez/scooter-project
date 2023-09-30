@@ -98,12 +98,16 @@ class ScooterApp {
       throw new Error('No such station')
     }
 
+    for(let i = 0; i<this.stations[station].length; i++){
+      if(this.stations[station][i].serial === scooter.serial){
+        throw new Error('Scooter is already docked')
+      }
+    }
+
     this.stations[station].push(scooter)
     scooter.dock(station)
     console.log('Scooter is docked')
     
-
-    console.log(scooter)
   }
 }
 

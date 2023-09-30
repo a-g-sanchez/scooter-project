@@ -80,7 +80,7 @@ describe('rent scooter method test', () => {
 // dock scooter
 
 describe('dock scooter method test', ()=> {
-  
+
   test('Should throw error if station does not exist', () => {
     expect(() => {
       scooterApp.dockScooter(testScooter, 'atxSouthEast')
@@ -90,6 +90,12 @@ describe('dock scooter method test', ()=> {
   test('Should correctly dock the scooter and remove the user from the scooters user property', () => {
     scooterApp.dockScooter(testScooter, 'atxEast')
     expect(testScooter.user).toBe(null)
+  })
+
+  test('Should throw an error if the scooter is already docked at given station', ()=> {
+    expect(()=> {
+      scooterApp.dockScooter(testScooter, 'atxEast')
+    }).toThrow('Scooter is already docked')
   })
 
  
