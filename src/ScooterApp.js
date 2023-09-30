@@ -99,8 +99,11 @@ class ScooterApp {
     }
 
     this.stations[station].push(scooter)
-    scooter.dock()
+    scooter.dock(station)
     console.log('Scooter is docked')
+    
+
+    console.log(scooter)
   }
 }
 
