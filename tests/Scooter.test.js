@@ -12,7 +12,7 @@ describe('scooter object', () => {
 })
 
 //Method tests
-describe('scooter methods', () => {
+describe('scooter rent method tests', () => {
   // tests here!
   //rent method
   test('rent method should throw an error when scooter needs to charge', () => {
@@ -38,6 +38,14 @@ describe('scooter methods', () => {
   
 
   //dock method
+
+  describe('scooter dock method tests', ()=> {
+
+    test('Should dock a scooter at a station', () => {
+      scooter.dock('atxWest')
+      expect(scooter.station).toBe('atxWest')
+    })
+  })
 
   //requestRepair method
 
